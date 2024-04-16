@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mutation Events</title>
+		<meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, width=device-width"/>
+		<script src="mutation-events.js" type="module"></script>
+	</head>
+	<body>
+
+		<h1>Mutation Events</h1>
+
+		<div id="example-div">Lorem ipsum dolor sit amet.</div>
+
+		<p>
+			<button onclick="document.querySelector('#example-div').style.color = `rgb(${Math.round(Math.random() * 255)}, ${Math.round(Math.random() * 255)}, ${Math.round(Math.random() * 255)})`">Click to change</button>
+		</p>
+
+		<p>
+			<textarea id="console-output" style="width:20rem; min-height:15rem;"></textarea>
+		</p>
+
+		<script>
+			addEventListener("DOMContentLoaded", () => {
+
+				// reference the elements
+				const exampleDiv = document.querySelector('#example-div');
+				const outputTextarea = document.querySelector('#console-output');
+
+				// start the library
+				const mutationEvents = new MutationEvents();
+
+				// watch this element
+				mutationEvents.watch(exampleDiv);
+
+				// listen for changes
+				exampleDiv.addEventListener('change', (evt) => {
+
+					// report the changes
+					outputTextarea.value = `Changed: ${evt.detail.mutation.attributeName}\n\n` + evt.target.outerHTML;
+
+				});
+
+			});
+		</script>
+		
+	</body>
+</html>
