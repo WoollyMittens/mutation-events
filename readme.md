@@ -2,6 +2,10 @@
 
 Simplifies the mutation observer so it can be used as an event.
 
+## Example
+
+https://woollymittens.github.io/mutation-events/
+
 ## Instructions
 
 ``` javascript
