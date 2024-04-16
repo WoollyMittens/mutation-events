@@ -9,19 +9,19 @@ https://woollymittens.github.io/mutation-events/
 ## Instructions
 
 ``` javascript
-    import { MutationEvents } from "./mutation-events.js";
+import { MutationEvents } from "./mutation-events.js";
 
-    const mutationEvents = new MutationEvents({
-        attributes: true,
-        childList: false,
-        subtree: false,
-    });
+const mutationEvents = new MutationEvents({
+    attributes: true,
+    childList: false,
+    subtree: false,
+});
 
-    mutationEvents.watch(YOUR_ELEMENT);
+mutationEvents.watch(YOUR_ELEMENT);
 
-    YOUR_ELEMENT.addEventListener("change", (evt) => {
-        console.log('do this when YOUR_ELEMENT changes', evt);
-    });
+YOUR_ELEMENT.addEventListener("change", (evt) => {
+    console.log('do this when YOUR_ELEMENT changes', evt);
+});
 ```
 
 ## License
